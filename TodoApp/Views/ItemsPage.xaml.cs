@@ -2,10 +2,10 @@
 
 namespace TodoApp.Views;
 
-public partial class MainPage : ContentPage
+public partial class ItemsPage : ContentPage
 {
-    MainPageViewModel vm;
-    public MainPage(MainPageViewModel vm)
+    ItemsPageViewModel vm;
+    public ItemsPage(ItemsPageViewModel vm)
     {
         InitializeComponent();
         this.vm = vm;

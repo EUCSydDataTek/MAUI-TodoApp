@@ -14,9 +14,9 @@ public class TodoItemService : ITodoItemService
     {
         todoItems = new List<TodoItem>
         {
-            new TodoItem { Id = 1, Description = "First item", Completed = false, CreatedTime = DateTime.Now },
-            new TodoItem { Id = 2, Description = "Second item", Completed = false, CreatedTime = DateTime.Now },
-            new TodoItem { Id = 3, Description = "Third item", Completed = false, CreatedTime = DateTime.Now }
+            new TodoItem { Id = 1, Description = "First item", Completed = false, CreatedTime = DateTime.Now, Priority = PriorityLevel.Low },
+            new TodoItem { Id = 2, Description = "Second item", Completed = false, CreatedTime = DateTime.Now, Priority = PriorityLevel.Normal },
+            new TodoItem { Id = 3, Description = "Third item", Completed = false, CreatedTime = DateTime.Now, Priority = PriorityLevel.High }
         };
     }
 

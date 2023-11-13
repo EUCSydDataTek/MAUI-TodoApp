@@ -5,11 +5,11 @@ using TodoApp.Models;
 using TodoApp.Services;
 
 namespace TodoApp.ViewModels;
-public partial class MainPageViewModel : ObservableObject
+public partial class ItemsPageViewModel : ObservableObject
 {
     private readonly ITodoItemService service;
 
-    public MainPageViewModel(ITodoItemService service)
+    public ItemsPageViewModel(ITodoItemService service)
     {
         this.service = service;
     }
