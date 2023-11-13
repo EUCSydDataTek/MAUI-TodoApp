@@ -23,8 +23,8 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<ITodoItemService, TodoItemService>();
 
-        builder.Services.AddSingleton<MainPageViewModel>();
-        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<ItemsPageViewModel>();
+        builder.Services.AddSingleton<ItemsPage>();
 
         return builder.Build();
     }
