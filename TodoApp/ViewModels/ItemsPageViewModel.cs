@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using TodoApp.Models;
 using TodoApp.Services;
+using TodoApp.Views;
 
 namespace TodoApp.ViewModels;
 public partial class ItemsPageViewModel : ObservableObject
@@ -25,5 +26,15 @@ public partial class ItemsPageViewModel : ObservableObject
         {
             TodoItemsCollection.Add(item);
         }
+    }
+
+    // new code
+    [RelayCommand]
+    async Task GoToDetails(TodoItem todoItem)
+    {
+        await Shell.Current.GoToAsync(nameof(DetailsPage), new Dictionary<string, object>
+        {
+            {"item", todoItem }
+        });
     }
 }

@@ -8,28 +8,34 @@
     xmlns:vm="clr-namespace:TodoApp.ViewModels"
     x:DataType="vm:ItemsPageViewModel">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" />
-    </ContentPage.ToolbarItems>
-
     <CollectionView ItemsSource="{Binding TodoItemsCollection}" SelectionMode="None">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:TodoItem">
-                <Grid ColumnDefinitions="50,*" HeightRequest="50">
-                    <BoxView
-                        CornerRadius="10"
-                        HeightRequest="20"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="20"
-                        Color="{Binding Priority, Converter={converters:PriorityToColorConverter}}" />
-                    <Label
-                        Grid.Column="1"
-                        FontSize="16"
-                        LineBreakMode="NoWrap"
-                        Text="{Binding Description}"
-                        VerticalTextAlignment="Center" />
-                </Grid>
+
+                <!--  new code  -->
+                <Frame HeightRequest="60">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ItemsPageViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                    <!--  new code end  -->
+
+                    <Grid ColumnDefinitions="50,*" HeightRequest="50">
+                        <BoxView
+                            CornerRadius="10"
+                            HeightRequest="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="20"
+                            Color="{Binding Priority, Converter={converters:PriorityToColorConverter}}" />
+                        <Label
+                            Grid.Column="1"
+                            FontSize="16"
+                            LineBreakMode="NoWrap"
+                            Text="{Binding Description}"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TodoApp.Views.DetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:TodoApp.Converters"
+    xmlns:vm="clr-namespace:TodoApp.ViewModels"
+    Title="DetailsPage"
+    x:DataType="vm:ItemDetailViewModel">
+
+    <Grid
+        Margin="20"
+        ColumnDefinitions="50, *"
+        RowDefinitions="60">
+        <BoxView
+            CornerRadius="10"
+            HeightRequest="20"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="20"
+            Color="{Binding TodoItem.Priority, Converter={converters:PriorityToColorConverter}}" />
+        <Grid
+            Grid.Column="1"
+            ColumnDefinitions="*"
+            RowDefinitions="*,*">
+            <Label
+                Grid.Row="0"
+                FontSize="Large"
+                Text="{Binding TodoItem.Description}" />
+            <Label Grid.Row="1" Text="{Binding TodoItem.CreatedTime, StringFormat='{0:r}'}" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
