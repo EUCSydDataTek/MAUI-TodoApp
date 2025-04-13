@@ -13,6 +13,8 @@
 
 		<LangVersion>preview</LangVersion>
 
+		<WindowsPackageType>MSIX</WindowsPackageType>
+
 		<!-- Display name -->
 		<ApplicationTitle>TodoApp</ApplicationTitle>
 
